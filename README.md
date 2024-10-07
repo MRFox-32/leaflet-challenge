@@ -24,5 +24,5 @@ Perform the following tasks:
 * Add layer controls to your map.
 
 ## Resources
-USGS Earthquake Data: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
-Tectonic Plates Data: https://github.com/fraxen/tectonicplates
+* USGS Earthquake Data: http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+* Tectonic Plates Data: https://github.com/fraxen/tectonicplates
