@@ -92,23 +92,32 @@ d3.json(quakes).then(function(quakeData) {
         }
     }).addTo(quakeOverlay); // Add markers to the overlay
 
-     // Set up the earthquake legend
+    // Set up the earthquake legend
     let legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function() {
         let div = L.DomUtil.create("div", "info legend");
+
+        // Add an orange line for tectonic plates
+        div.innerHTML += "<div style='display: flex; align-items: center;'>" +
+        "<div style='width: 20px; height: 2px; background-color: orange; margin-right: 5px;'></div>" +
+        "Tectonic Plates" + "</div>";
+        
+        // Add a header for the depth ranges
+        div.innerHTML += "<div style='font-weight: bold; margin-top: 10px;'>Depth:</div>";
 
         // Loop through each depth range and create a label
         depthRanges.forEach(function(range) {
             div.innerHTML += "<div style='display: flex; align-items: center;'>" +
                 "<div style='background-color: " + range.color + 
                 "; width: 20px; height: 20px; margin-right: 5px;'></div>" +
-                range.range + "</div>";
+                range.range + " km" + "</div>";
         });
+
         return div;
     };
 
-    legend.addTo(quakeOverlay); // Add legend to the overlay
+    legend.addTo(map); // Add legend to map
 
 // Check for any errors
 }).catch(function(error) {
